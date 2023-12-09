@@ -1,11 +1,11 @@
 import { program } from "commander";
-import * as contactsService from "./db/contacts.js";
+import * as contactsService from "./contacts.js";
 
 const invokeAction = async ({action, id, ...data}) => {
     switch (action) {
         case "list":
             const listContacts = await contactsService.getListContacts();
-            console.log(listContacts);
+            console.table(listContacts);
             break;
         case "get":
             const contact = await contactsService.getContactById(id);
